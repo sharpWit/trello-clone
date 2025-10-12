@@ -2,6 +2,16 @@
   "name": "trello-clone",
   "version": "0.1.0",
   "private": true,
+  "description": "A Trello clone built with React, TypeScript, and Next.js.",
+  "author": {
+    "name": "Saeed Khosravi",
+    "email": "khosravi.webmaster@gmail.com",
+    "url": "https://github.com/sharpWit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sharpWit/trello-clone.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
