@@ -1,0 +1,17 @@
+// Abstracts FIRST
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+// Base styles AFTER
+@import "@/styles/base/reset";
+@import "@/styles/base/typography";
+
+// Global Styles (using variables from abstracts)
+body {
+  color: $foreground-color;
+  background: $background-color;
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

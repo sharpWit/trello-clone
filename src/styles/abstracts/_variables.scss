@@ -1,0 +1,39 @@
+// Spacing variables
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Colors
+$primary-color: hsl(202.79, 58.37%, 43.33%);
+$secondary-color: hsl(107, 44%, 46%);
+$background-color: hsl(0, 0%, 100%);
+$foreground-color: hsl(229, 8%, 27%);
+$card-background-color: hsl(220, 14%, 87%);
+$popover-background-color: hsl(220, 16%, 96%);
+$input-background-color: hsl(218, 15%, 86%);
+$muted-color: hsl(0, 0%, 46%);
+$accent-color: hsl(218.18, 13.36%, 48.43%);
+$alert-color: hsl(10, 56%, 44%);
+$text-color: hsl(229, 8%, 27%);
+// random colors
+$blue-color: hsl(203, 58%, 39%);
+$green-color: hsl(158, 100%, 17%);
+$orange-color: hsl(35, 64%, 51%);
+$purple-color: hsl(280, 24%, 45%);
+$pink-color: hsl(331, 42%, 52%);
+
+// Typography
+$font-family-base: Arial, Helvetica, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1200px;
+
+// Border
+$border-radius: 8px;
+$border-radius-lg: 12px;
