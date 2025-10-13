@@ -1,0 +1,14 @@
+.layout {
+  @include grid;
+
+  grid-template:
+    "header"
+    "main" 1fr / auto;
+
+  min-height: 100vh;
+  overflow: hidden;
+
+  .main {
+    @include grid-area(main);
+  }
+}

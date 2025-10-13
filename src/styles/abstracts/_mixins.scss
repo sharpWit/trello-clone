@@ -13,3 +13,22 @@
     }
   }
 }
+
+// ======================
+// GRID MIXINS
+// ======================
+
+// Basic Grid
+@mixin grid {
+  display: grid;
+}
+
+// Gap Utilities
+@mixin grid-gap($row-size: 1rem, $col-size: 1rem) {
+  gap: $row-size $col-size;
+}
+
+// Grid Area
+@mixin grid-area($area) {
+  grid-area: $area;
+}
