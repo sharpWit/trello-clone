@@ -1,0 +1,34 @@
+.formElement {
+  padding: 0.6rem;
+  background-color: $card-background-color;
+  border-radius: 0.2rem;
+
+  .actionContainer {
+    @include flex;
+
+    -webkit-box-align: center;
+    align-items: center;
+
+    .closeButton {
+      padding: $spacing-sm;
+      font-size: 1rem;
+      color: $accent-color;
+      cursor: pointer;
+      transition: color 0.1s ease-in;
+      background-color: transparent;
+      border: none;
+
+      & svg {
+        overflow: visible;
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        vertical-align: -0.125em;
+      }
+
+      &:hover {
+        color: $foreground-color;
+      }
+    }
+  }
+}
