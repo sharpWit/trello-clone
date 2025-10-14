@@ -1,0 +1,5 @@
+.colorGroup {
+  @include flex;
+  padding: $spacing-xs 0px;
+  margin-bottom: $spacing-sm;
+}
