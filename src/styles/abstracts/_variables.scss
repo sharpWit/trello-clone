@@ -10,7 +10,7 @@ $primary-color: hsl(202.79, 58.37%, 43.33%);
 $secondary-color: hsl(107, 44%, 46%);
 $background-color: hsl(0, 0%, 100%);
 $foreground-color: hsl(229, 8%, 27%);
-$card-background-color: hsl(220, 14%, 87%);
+$card-background-color: rgb(218, 221, 227);
 $popover-background-color: hsl(220, 16%, 96%);
 $input-background-color: hsl(218, 15%, 86%);
 $muted-color: hsl(0, 0%, 46%);
@@ -37,3 +37,8 @@ $breakpoint-desktop: 1200px;
 // Border
 $border-radius: 8px;
 $border-radius-lg: 12px;
+
+// Width & Height
+$w-full: 100%;
+$h-full: 100%;
+$h-screen: 100vh;
