@@ -1,0 +1,52 @@
+.checkboxContainer {
+  @include flex;
+
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.7rem;
+  color: $background-color;
+  border-radius: 0.4rem;
+  cursor: pointer;
+
+  // Color variants
+  &.blue {
+    background-color: $blue-color;
+  }
+
+  &.green {
+    background-color: $green-color;
+  }
+
+  &.orange {
+    background-color: $orange-color;
+  }
+
+  &.purple {
+    background-color: $purple-color;
+  }
+
+  &.pink {
+    background-color: $pink-color;
+  }
+
+  &:not(:last-child) {
+    margin-right: $spacing-sm;
+  }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 10rem inset;
+  }
+
+  & svg {
+    display: inline-block;
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+  }
+}

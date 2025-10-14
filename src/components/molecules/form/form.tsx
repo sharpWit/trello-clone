@@ -9,7 +9,7 @@ const FormComponent = () => {
       <div className={styles.actionContainer}>
         <Button>Create board</Button>
         <button className={styles.closeButton}>
-          <CloseIcon />
+          <CloseIcon title="Close" />
         </button>
       </div>
     </form>
