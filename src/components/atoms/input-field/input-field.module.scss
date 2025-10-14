@@ -1,0 +1,16 @@
+.inputElement {
+  max-width: $w-full;
+  width: $w-full;
+  margin: 0px 0px $spacing-sm;
+  padding: $spacing-sm;
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  color: $text-color;
+  font-weight: normal;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  background-color: $input-background-color;
+  border: 0px;
+  border-radius: 0.2rem;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px;
+}
