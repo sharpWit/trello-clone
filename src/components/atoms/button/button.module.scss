@@ -1,0 +1,17 @@
+.btn {
+  margin-right: $spacing-sm;
+  padding: $spacing-sm 8px 0.75rem;
+  color: $background-color;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 0px;
+  background-color: $secondary-color;
+  box-shadow: rgb(63, 111, 33) 0px 1px 0px 0px;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+
+  &:hover {
+    background-color: shade($secondary-color, 10%);
+  }
+}
