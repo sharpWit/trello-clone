@@ -1,14 +1,29 @@
+"use client";
+
 import { Checkbox } from "@/components/atoms";
 import styles from "./color-group.module.scss";
+import { BoardColors, colorsKeys } from "@/shared";
 
-const ColorGroup = () => {
+interface ColorGroupProps {
+  selectedColor: BoardColors;
+  onColorChange: (color: BoardColors) => void;
+}
+
+const ColorGroup = ({ selectedColor, onColorChange }: ColorGroupProps) => {
   return (
-    <div className={styles.colorGroup}>
-      <Checkbox color="blue" />
-      <Checkbox color="green" />
-      <Checkbox color="orange" />
-      <Checkbox color="purple" />
-      <Checkbox color="pink" />
+    <div
+      className={styles.colorGroup}
+      role="radiogroup"
+      aria-label="Select board color"
+    >
+      {colorsKeys.map((color) => (
+        <Checkbox
+          key={color}
+          color={color}
+          checked={selectedColor === color}
+          onChange={() => onColorChange(color)}
+        />
+      ))}
     </div>
   );
 };
