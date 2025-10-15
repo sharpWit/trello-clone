@@ -5,15 +5,15 @@ import { notFound } from "next/navigation";
 import { useLiveQuery } from "dexie-react-hooks";
 import { boardRepository } from "@/db";
 
-const BoardPage = dynamic(
-  () => import("../../../../features/board/components/board-card/board-card"),
+const ListPage = dynamic(
+  () => import("./list-page").then((mod) => mod.ListPage),
   {
     ssr: false,
     loading: () => <div>Loading board...</div>,
   }
 );
 
-const BoardPageWrapper = ({ boardId }: { boardId: string }) => {
+const ListPageWrapper = ({ boardId }: { boardId: string }) => {
   const board = useLiveQuery(() => boardRepository.getById(boardId), [boardId]);
 
   if (board === undefined) {
@@ -26,7 +26,7 @@ const BoardPageWrapper = ({ boardId }: { boardId: string }) => {
 
   console.log("board: ", board);
 
-  return <BoardPage id={board.id} title={board.title} color={board.color} />;
+  return <ListPage id={board.id} title={board.title} color={board.color} />;
 };
 
-export default BoardPageWrapper;
+export default ListPageWrapper;

@@ -9,7 +9,7 @@ interface BoardListProps {
   boards: Board[];
 }
 
-const BoardList = ({ boards }: BoardListProps) => {
+export const BoardList = ({ boards }: BoardListProps) => {
   return (
     <>
       {boards.map((board) => (
@@ -27,5 +27,3 @@ const BoardList = ({ boards }: BoardListProps) => {
     </>
   );
 };
-
-export default BoardList;

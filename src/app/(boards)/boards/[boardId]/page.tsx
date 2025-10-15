@@ -1,4 +1,4 @@
-import BoardPageWrapper from "@/app/(boards)/boards/[boardId]/board-page-wrapper";
+import { ListPageWrapper } from "@/features";
 
 export default async function BoardPage({
   params,
@@ -7,7 +7,5 @@ export default async function BoardPage({
 }>) {
   const { boardId } = await params;
 
-  console.log("boardId-page: ", boardId);
-
-  return <BoardPageWrapper boardId={boardId} />;
+  return <ListPageWrapper boardId={boardId} />;
 }

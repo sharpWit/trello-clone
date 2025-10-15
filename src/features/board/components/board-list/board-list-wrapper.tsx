@@ -3,9 +3,12 @@
 import dynamic from "next/dynamic";
 import { useBoards } from "@/features/board/hooks/use-boards";
 
-const BoardsList = dynamic(() => import("./board-list"), {
-  ssr: false,
-});
+const BoardsList = dynamic(
+  () => import("./board-list").then((mod) => mod.BoardList),
+  {
+    ssr: false,
+  }
+);
 
 const BoardListWrapper = () => {
   const { boards } = useBoards();

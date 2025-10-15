@@ -1,5 +1,5 @@
 import styles from "./page.module.scss";
-import BoardListWrapper from "@/features/board/components/board-list/board-list-wrapper";
+import { BoardListWrapper } from "@/features";
 
 export default function BoardsPage() {
   return (

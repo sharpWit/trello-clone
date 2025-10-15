@@ -72,6 +72,7 @@ const FormComponent = ({
         name={`${title}Title`}
         value={formData.title}
         onChange={handleTitleChange}
+        required
       />
       {hasColor && (
         <ColorGroup
