@@ -1,6 +1,5 @@
 import styles from "./page.module.scss";
-import { BoardList } from "@/features";
-import { boardsData } from "@/shared";
+import BoardListWrapper from "@/features/board/components/board-list/board-list-wrapper";
 
 export default function BoardsPage() {
   return (
@@ -8,7 +7,7 @@ export default function BoardsPage() {
       <h1>My Boards</h1>
 
       <div className={styles.container}>
-        {boardsData.length > 0 && <BoardList boards={boardsData} />}
+        <BoardListWrapper />
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
-import { BoardCard } from "@/features/board/components/board-card";
+"use client";
+
 import BoardCardToggle from "@/features/board/components/board-card-generator/board-card-toggle";
+import { BoardCard } from "@/features/board/components/board-card";
 import { BoardCardProvider } from "@/features/board/providers";
 import { Board } from "@/shared";
 
@@ -12,8 +14,8 @@ const BoardList = ({ boards }: BoardListProps) => {
     <>
       {boards.map((board) => (
         <BoardCard
-          key={board.id}
           id={board.id}
+          key={board.id}
           title={board.title}
           color={board.color}
           list={board.list}

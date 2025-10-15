@@ -1,20 +1,14 @@
-export interface Board {
-  id: number;
-  title: string;
-  color: BoardColors;
-  list?: List[];
-}
+import {
+  BoardColorsSchema,
+  BoardSchema,
+  CardSchema,
+  ListSchema,
+} from "@/db/dexie/schema";
 
-export interface List {
-  id: number;
-  title: string;
-  cards?: Card[];
-}
+export type BoardColors = BoardColorsSchema;
 
-export interface Card {
-  id: number;
-  title: string;
-  description?: string;
-}
+export type Board = Omit<BoardSchema, "createdAt">;
 
-export type BoardColors = "blue" | "green" | "orange" | "purple" | "pink";
+export type List = Omit<ListSchema, "createdAt">;
+
+export type Card = Omit<CardSchema, "createdAt">;

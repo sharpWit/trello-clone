@@ -1,14 +1,19 @@
+import Link from "next/link";
 import styles from "./board-card.module.scss";
 import { Board } from "@/shared";
 
 type BoardCardProps = Board;
 
-const BoardCard = ({ title, color, list }: BoardCardProps) => {
+const BoardCard = ({ id, title, color }: BoardCardProps) => {
   return (
-    <div className={`${styles.container} ${styles[color]}`}>
+    <Link
+      href={`/boards/${id}`}
+      className={`${styles.container} ${styles[color]}`}
+    >
       <h2>{title}</h2>
       <div className={styles.listCols}>
-        {list?.map((col) => {
+        {/* FIX LATER */}
+        {/* { list?.map((col) => {
           const cardsCount = col.cards?.length || 0;
           const cellsToShow =
             cardsCount === 0 ? 1 : cardsCount === 1 ? 2 : cardsCount;
@@ -20,9 +25,9 @@ const BoardCard = ({ title, color, list }: BoardCardProps) => {
               ))}
             </div>
           );
-        })}
+        })} */}
       </div>
-    </div>
+    </Link>
   );
 };
 
