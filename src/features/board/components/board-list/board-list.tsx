@@ -1,5 +1,6 @@
 import { BoardCard } from "@/features/board/components/board-card";
-import { BoardCardGenerator } from "@/features/board/components/board-card-generator";
+import BoardCardToggle from "@/features/board/components/board-card-generator/board-card-toggle";
+import { BoardCardProvider } from "@/features/board/providers";
 import { Board } from "@/shared";
 
 interface BoardListProps {
@@ -18,7 +19,9 @@ const BoardList = ({ boards }: BoardListProps) => {
           list={board.list}
         />
       ))}
-      <BoardCardGenerator />
+      <BoardCardProvider>
+        <BoardCardToggle />
+      </BoardCardProvider>
     </>
   );
 };

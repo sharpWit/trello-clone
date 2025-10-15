@@ -1,4 +1,15 @@
-.container {
+.createCard {
+  font-size: 1rem;
+  color: $card-foreground-color;
+  font-weight: 600;
+  background-color: $card-background-color;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s ease-in;
+  border: none;
+  cursor: pointer;
+}
+
+.createCardContainer {
   height: $h-full;
   padding: $spacing-md 0.6rem;
   background-color: $card-background-color;

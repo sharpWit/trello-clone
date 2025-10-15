@@ -1,5 +1,7 @@
 import styles from "./action-buttons.module.scss";
 import { Button } from "@/components/atoms";
+import { useBoardCard } from "@/features";
+
 import { CloseIcon, useFormContext } from "@/shared";
 
 interface ActionButtonsProps {
@@ -8,8 +10,11 @@ interface ActionButtonsProps {
 
 const ActionButtons = ({ children }: ActionButtonsProps) => {
   const { formData, resetForm } = useFormContext();
+  const { close } = useBoardCard();
+
   const handleReset = () => {
     resetForm();
+    close();
   };
 
   const isFormValid =
@@ -25,7 +30,7 @@ const ActionButtons = ({ children }: ActionButtonsProps) => {
         type="button"
         onClick={handleReset}
       >
-        <CloseIcon title="Close" />
+        <CloseIcon title="Close" onClick={close} />
       </button>
     </div>
   );

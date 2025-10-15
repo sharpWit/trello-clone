@@ -4,7 +4,7 @@ import { FormProvider } from "@/shared";
 
 export const BoardCardGenerator = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent title="board" hasColor submitButtonText="Create board" />
       </FormProvider>

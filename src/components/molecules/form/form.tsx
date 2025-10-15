@@ -1,10 +1,12 @@
 "use client";
 
+import { useRef } from "react";
 import styles from "./form.module.scss";
 import { InputField } from "@/components/atoms";
 import { ColorGroup } from "@/components/molecules/color-group";
 import ActionButtons from "@/components/molecules/action-buttons/action-buttons";
-import { BoardColors, useFormContext } from "@/shared";
+import { useBoardCard } from "@/features";
+import { BoardColors, useClickOutside, useFormContext } from "@/shared";
 
 interface FormComponentProps {
   title: string;
@@ -21,6 +23,9 @@ const FormComponent = ({
   submitButtonText,
 }: FormComponentProps) => {
   const { formData, updateField, resetForm } = useFormContext();
+  const { close } = useBoardCard();
+  const formRef = useRef<HTMLFormElement>(null!);
+  useClickOutside(formRef, () => close());
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateField("title", e.target.value);
@@ -42,10 +47,11 @@ const FormComponent = ({
     //! Handle
     console.log("Form submitted:", { formData });
     resetForm();
+    close();
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formElement}>
+    <form onSubmit={handleSubmit} className={styles.formElement} ref={formRef}>
       <InputField
         placeholder={titlePlaceholder ?? "Add board title"}
         name={`${title}Title`}
