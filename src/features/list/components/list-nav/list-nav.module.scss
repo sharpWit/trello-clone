@@ -1,0 +1,36 @@
+.listNav {
+  @include flex;
+}
+.innerNav {
+  @include flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: $spacing-sm;
+  padding: 0.2rem $spacing-sm;
+  color: $background-color;
+  border-radius: 3px;
+  background-color: tint($foreground-color, 20%);
+  transition: 0.2s ease-in;
+  min-width: $w-full;
+
+  & h3 {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .boardIcon {
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    min-width: fit-content;
+
+    & svg {
+      display: inline-block;
+      font-size: inherit;
+      width: 1em;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+  }
+}

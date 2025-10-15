@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useLiveQuery } from "dexie-react-hooks";
 import styles from "./header.module.scss";
 import { boardRepository } from "@/db";
+import ListNav from "@/features/list/components/list-nav/list-nav";
 
 const Header = () => {
   const params = useParams();
@@ -21,7 +22,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={`${styles.innerHeader} ${colorClass}`}>
-        <div></div>
+        <div>{board?.id && <ListNav />}</div>
         <div className={styles.logo}>
           <Image src="/images/logo.svg" alt="Logo" width={160} height={50} />
         </div>

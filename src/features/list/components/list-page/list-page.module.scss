@@ -43,36 +43,21 @@
   // Color variants
   &.blue {
     background-color: $blue-color;
-    &:hover {
-      background-color: shade($blue-color, 10%);
-    }
   }
 
   &.green {
     background-color: $green-color;
-    &:hover {
-      background-color: shade($green-color, 10%);
-    }
   }
 
   &.orange {
     background-color: $orange-color;
-    &:hover {
-      background-color: shade($orange-color, 10%);
-    }
   }
 
   &.purple {
     background-color: $purple-color;
-    &:hover {
-      background-color: shade($purple-color, 10%);
-    }
   }
 
   &.pink {
     background-color: $pink-color;
-    &:hover {
-      background-color: shade($pink-color, 10%);
-    }
   }
 }
