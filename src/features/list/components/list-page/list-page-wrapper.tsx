@@ -24,8 +24,6 @@ const ListPageWrapper = ({ boardId }: { boardId: string }) => {
     notFound();
   }
 
-  console.log("board: ", board);
-
   return <ListPage id={board.id} title={board.title} color={board.color} />;
 };
 

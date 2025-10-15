@@ -12,7 +12,7 @@ const BoardsList = dynamic(
 
 const BoardListWrapper = () => {
   const { boards } = useBoards();
-  console.log("boards: ", boards);
+
   return <BoardsList boards={boards} />;
 };
 
