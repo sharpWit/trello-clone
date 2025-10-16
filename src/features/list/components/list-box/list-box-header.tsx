@@ -4,7 +4,8 @@ import { useRef, useState } from "react";
 import styles from "./list-box.module.scss";
 import { InputField } from "@/components";
 import { useBoardsList } from "@/features/list/hooks";
-import { DotsIcon, useClickOutside } from "@/shared";
+import { useClickOutside } from "@/shared";
+import { ListBoxHeaderActions } from "@/features/list/components/list-box/list-box-header-actions";
 
 interface ListBoxHeaderProps {
   title: string;
@@ -54,7 +55,7 @@ const ListBoxHeader = ({ title, boardId, listId }: ListBoxHeaderProps) => {
           tempTitle
         )}
       </h3>
-      <DotsIcon title="dots" />
+      <ListBoxHeaderActions boardId={boardId} listId={listId} />
     </>
   );
 };
