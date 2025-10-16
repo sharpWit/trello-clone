@@ -17,5 +17,9 @@
 }
 
 .createCardContainer {
-  padding: 0px $spacing-sm;
+  padding: $spacing-sm;
+
+  .createCardForm {
+    padding: 0;
+  }
 }

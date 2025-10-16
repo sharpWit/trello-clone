@@ -1,0 +1,8 @@
+.cardBox {
+  padding: $spacing-sm;
+  border-radius: 0.2rem;
+  background-color: $input-background-color;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px;
+  transition: background-color 0.2s ease-in;
+  margin-bottom: $spacing-sm;
+}

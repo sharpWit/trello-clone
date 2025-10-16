@@ -19,4 +19,5 @@
 .createCardContainer {
   width: 16rem;
   margin: 0px $spacing-sm;
+  min-width: max-content;
 }

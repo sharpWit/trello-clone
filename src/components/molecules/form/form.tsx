@@ -19,6 +19,7 @@ interface FormComponentProps {
     selectedColor?: BoardColors;
   }) => Promise<void> | void;
   onClose?: () => void;
+  className?: string;
 }
 const FormComponent = ({
   title,
@@ -28,6 +29,7 @@ const FormComponent = ({
   submitButtonText,
   onSubmit,
   onClose,
+  className,
 }: FormComponentProps) => {
   const formRef = useRef<HTMLFormElement>(null!);
   const { formData, updateField, resetForm } = useFormContext();
@@ -48,7 +50,11 @@ const FormComponent = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formElement} ref={formRef}>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.formElement} ${className}`}
+      ref={formRef}
+    >
       <InputField
         placeholder={titlePlaceholder ?? "Enter title"}
         name={`${title}Title`}

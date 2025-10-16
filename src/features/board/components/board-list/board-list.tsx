@@ -17,7 +17,6 @@ export const BoardList = ({ boards }: BoardListProps) => {
           key={board.id}
           title={board.title}
           color={board.color}
-          list={board.list}
         />
       ))}
       <BoardCardToggle />

@@ -30,6 +30,7 @@ const CardGenerator = ({ listId }: { listId?: string }) => {
           submitButtonText="Create card"
           onSubmit={handleSubmit}
           onClose={close}
+          className={styles.createCardForm}
         />
       </FormProvider>
     </div>

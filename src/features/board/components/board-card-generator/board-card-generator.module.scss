@@ -11,7 +11,7 @@
 
 .createCardContainer {
   height: $h-full;
-  padding: $spacing-md 0.6rem;
+  max-height: 6.25rem;
   background-color: $card-background-color;
   border-radius: 0.4rem;
 }

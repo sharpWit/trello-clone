@@ -12,7 +12,7 @@ export class AppDatabase extends Dexie {
     this.version(1).stores({
       boards: "id, title, color, lists, createdAt",
       lists: "id, boardId, title, cards, createdAt",
-      cards: "id, listId, title, description, createdAt",
+      cards: "id, boardId, listId, title, description, createdAt",
     });
   }
 }

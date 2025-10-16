@@ -16,8 +16,9 @@
 
   .listCols {
     @include flex-row;
-
-    height: 6.25rem;
+    max-height: 6.25rem;
+    min-height: min-content;
+    height: $h-full;
     overflow: hidden;
 
     .listCol {
@@ -27,7 +28,9 @@
       margin-right: 0.4rem;
       border-radius: 0.2rem;
       overflow: hidden;
-      height: 1.5rem;
+      height: $h-full;
+      min-height: min-content;
+      max-height: 1.5rem;
     }
 
     .listCol:last-child {
@@ -36,10 +39,16 @@
 
     .cardCell {
       width: 1.5rem;
-      height: 0.75rem;
+      height: $h-full;
+      min-height: min-content;
+      max-height: 0.75rem;
       background: rgba(255, 255, 255, 0.25);
       flex-shrink: 0;
       border-radius: 0;
+
+      &.bordered {
+        border-radius: 0.2rem;
+      }
     }
   }
 

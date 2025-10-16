@@ -2,15 +2,15 @@
 
 import { useRef, useState } from "react";
 import styles from "./list-box.module.scss";
-import { InputField } from "@/components";
-import { useBoardsList } from "@/features/list/hooks";
-import { useClickOutside } from "@/shared";
 import { ListBoxHeaderActions } from "@/features/list/components/list-box/list-box-header-actions";
+import { useBoardsList } from "@/features/list/hooks";
+import { InputField } from "@/components";
+import { useClickOutside } from "@/shared";
 
 interface ListBoxHeaderProps {
   title: string;
   boardId: string;
-  listId?: string;
+  listId: string;
 }
 
 const ListBoxHeader = ({ title, boardId, listId }: ListBoxHeaderProps) => {
@@ -46,6 +46,7 @@ const ListBoxHeader = ({ title, boardId, listId }: ListBoxHeaderProps) => {
       >
         {isEditing ? (
           <InputField
+            type="text"
             name="list-title"
             id="list-title-input"
             value={tempTitle}

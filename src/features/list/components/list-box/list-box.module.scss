@@ -10,22 +10,29 @@
   border-radius: 0.2rem;
 
   .listBoxHeader {
-    padding: $spacing-sm 0.7rem 0rem $spacing-sm;
+    padding: $spacing-sm $spacing-sm 0 $spacing-sm;
     width: $w-full;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
     justify-content: space-between;
+    flex-grow: 1;
+    flex-shrink: 1;
+    gap: 0.5rem;
 
     .header {
       width: $w-full;
-      padding: 0.3rem 4.8px $spacing-sm;
       font-size: 1rem;
       font-weight: 600;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    & input {
+      margin-bottom: 0;
     }
 
     & svg {
@@ -36,22 +43,6 @@
       overflow: visible;
       vertical-align: -0.125em;
       cursor: pointer;
-    }
-  }
-
-  .listBoxFooter {
-    text-align: left;
-    width: $w-full;
-    padding: $spacing-sm 0.75rem;
-    font-size: 0.875rem;
-    color: $muted-color;
-    transition: 0.2s ease-in;
-    cursor: pointer;
-    border: none;
-
-    &:hover {
-      color: $background-color;
-      background-color: shade($muted-color, 13%);
     }
   }
 }

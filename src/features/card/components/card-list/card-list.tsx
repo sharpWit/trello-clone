@@ -16,11 +16,9 @@ const CardList = ({ listId }: CardListProps) => {
     <ToggleCardProvider>
       <div className={styles.listBoxBody}>
         <div className={styles.listBoxBodyItem}>
-          <div className={styles.listBoxBodyItemBox}>
-            {boardCards?.map((card) => (
-              <Card key={card.id} title={card.title} />
-            ))}
-          </div>
+          {boardCards?.map((card) => (
+            <Card key={card.id} title={card.title} />
+          ))}
         </div>
       </div>
       <CardFormToggle listId={listId} />

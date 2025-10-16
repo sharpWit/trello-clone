@@ -1,7 +1,7 @@
 .listPage {
   @include flex;
-  position: relative;
   flex-direction: column;
+  position: relative;
   height: $h-full;
   padding-top: $spacing-sm;
   background-color: $blue-color;

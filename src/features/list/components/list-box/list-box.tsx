@@ -5,7 +5,7 @@ import { CardList } from "@/features/card";
 interface ListBoxProps {
   title: string;
   boardId: string;
-  listId?: string;
+  listId: string;
 }
 const ListBox = ({ title, boardId, listId }: ListBoxProps) => {
   return (
@@ -13,9 +13,7 @@ const ListBox = ({ title, boardId, listId }: ListBoxProps) => {
       <div className={styles.listBoxHeader}>
         <ListBoxHeader title={title} boardId={boardId} listId={listId} />
       </div>
-      <div className={styles.listBoxBody}>
-        <CardList listId={listId} />
-      </div>
+      <CardList listId={listId} />
     </div>
   );
 };

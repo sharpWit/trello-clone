@@ -9,11 +9,25 @@ export function useBoardsList(boardId: string) {
       editList: async () => {},
       deleteList: async () => {},
     };
+
   const boardLists =
-    useLiveQuery(
-      () => db.lists.where("boardId").equals(boardId).toArray(),
-      []
-    ) ?? [];
+    useLiveQuery(async () => {
+      if (!boardId) return [];
+      const lists = await db.lists.where("boardId").equals(boardId).toArray();
+
+      // Attach cards to each list
+      const listsWithCards = await Promise.all(
+        lists.map(async (list) => {
+          const cards = await db.cards
+            .where("listId")
+            .equals(list.id)
+            .toArray();
+          return { ...list, cards };
+        })
+      );
+
+      return listsWithCards;
+    }, [boardId]) ?? [];
 
   const addList = async (id: string, title: string) => {
     await listsRepository.add({ id, boardId, title });
