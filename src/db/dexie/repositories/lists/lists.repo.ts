@@ -15,17 +15,7 @@ export const listsRepository = {
       ...data,
       createdAt: new Date().toISOString(),
     };
-    await db.lists
-      .where("boardId")
-      .equals(newList.boardId)
-      .first()
-      .then((existingList) => {
-        if (existingList) {
-          return db.lists.update(existingList.id, newList);
-        } else {
-          return db.lists.add(newList);
-        }
-      });
+    await db.lists.add(newList);
     return newList;
   },
 

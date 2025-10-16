@@ -3,21 +3,22 @@
 import styles from "./card-list.module.scss";
 import { CardFormToggle } from "@/features/card/components/card-generator";
 import Card from "@/features/card/components/card/card";
+import { useBoardsCard } from "@/features/card/hooks";
 import { ToggleCardProvider } from "@/shared";
-import { CardSchema } from "@/db";
 
 interface CardListProps {
-  cards?: CardSchema[];
-  listId?: string;
+  listId: string;
 }
-const CardList = ({ cards, listId }: CardListProps) => {
+const CardList = ({ listId }: CardListProps) => {
+  const { boardCards } = useBoardsCard(listId);
+
   return (
     <ToggleCardProvider>
       <div className={styles.listBoxBody}>
         <div className={styles.listBoxBodyItem}>
           <div className={styles.listBoxBodyItemBox}>
-            {cards?.map((card) => (
-              <Card key={card.id} />
+            {boardCards?.map((card) => (
+              <Card key={card.id} title={card.title} />
             ))}
           </div>
         </div>

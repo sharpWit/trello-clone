@@ -21,7 +21,6 @@ export const ListPage = ({ id, title, color }: ListPageProps) => {
           ? boardLists.map((list) => (
               <ListBox
                 key={list.id}
-                cards={list.cards}
                 title={list.title}
                 boardId={id}
                 listId={list.id}

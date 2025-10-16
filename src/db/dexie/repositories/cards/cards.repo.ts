@@ -15,17 +15,7 @@ export const cardsRepository = {
       ...data,
       createdAt: new Date().toISOString(),
     };
-    await db.cards
-      .where("listId")
-      .equals(newCard.listId)
-      .first()
-      .then((existingList) => {
-        if (existingList) {
-          return db.cards.update(existingList.id, newCard);
-        } else {
-          return db.cards.add(newCard);
-        }
-      });
+    await db.cards.add(newCard);
     return newCard;
   },
 
