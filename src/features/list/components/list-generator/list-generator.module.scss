@@ -1,0 +1,22 @@
+.container {
+  flex-shrink: 0;
+  width: 16rem;
+  margin: 0px $spacing-sm;
+  .innerBtn {
+    width: $w-full;
+    padding: 0.6rem;
+    font-size: 1rem;
+    color: $background-color;
+    text-align: left;
+    border-radius: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.12);
+    transition: background-color 0.2s ease-in;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.createCardContainer {
+  width: 16rem;
+  margin: 0px $spacing-sm;
+}
