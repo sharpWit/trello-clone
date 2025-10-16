@@ -21,6 +21,13 @@ export const boardRepository = {
     return newBoard;
   },
 
+  async update(
+    id: string,
+    data: Partial<Omit<BoardSchema, "id">>
+  ): Promise<void> {
+    await db.boards.update(id, data);
+  },
+
   async remove(id: string): Promise<void> {
     await db.boards.delete(id);
   },

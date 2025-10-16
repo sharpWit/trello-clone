@@ -9,9 +9,13 @@ export function useBoards() {
     await boardRepository.add({ id, title, color });
   };
 
+  const editBoard = async (id: string, title: string, color: BoardColors) => {
+    await boardRepository.update(id, { title, color });
+  };
+
   const deleteBoard = async (id: string) => {
     await boardRepository.remove(id);
   };
 
-  return { boards, addBoard, deleteBoard };
+  return { boards, addBoard, editBoard, deleteBoard };
 }

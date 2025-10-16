@@ -16,7 +16,7 @@
     -webkit-box-pack: justify;
     justify-content: space-between;
 
-    & h1 {
+    .header {
       max-width: calc(-9rem + 100vw);
       margin: 0px;
       padding: $spacing-sm;
