@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styles from "./board-card.module.scss";
+import { useBoardsList } from "@/features/list";
 import { Board } from "@/shared";
-// import { useBoards } from "@/features/board/hooks/use-boards";
 
 type BoardCardProps = Board;
 
 const BoardCard = ({ id, title, color }: BoardCardProps) => {
-  // const { list } = useBoards();
+  const { boardsLists } = useBoardsList();
 
-  // console.log("list: ", list);
+  console.log("boardsLists: ", boardsLists);
 
   return (
     <Link
@@ -17,7 +17,7 @@ const BoardCard = ({ id, title, color }: BoardCardProps) => {
     >
       <h2>{title}</h2>
       <div className={styles.listCols}>
-        {/* {list?.map((col) => {
+        {boardsLists?.map((col) => {
           const cardsCount = col.cards?.length || 0;
           const cellsToShow =
             cardsCount === 0 ? 1 : cardsCount === 1 ? 2 : cardsCount;
@@ -29,7 +29,7 @@ const BoardCard = ({ id, title, color }: BoardCardProps) => {
               ))}
             </div>
           );
-        })} */}
+        })}
       </div>
     </Link>
   );

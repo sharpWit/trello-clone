@@ -1,5 +1,5 @@
 import { db } from "@/db/dexie/database";
-import { BoardSchema } from "@/db/dexie/schema";
+import { BoardSchema } from "@/db/dexie/schemas";
 
 export const boardRepository = {
   async getAll(): Promise<BoardSchema[]> {

@@ -1,5 +1,5 @@
 import Dexie, { Table } from "dexie";
-import type { BoardSchema, CardSchema, ListSchema } from "./schema";
+import { BoardSchema, CardSchema, ListSchema } from "@/db/dexie/schemas";
 
 export class AppDatabase extends Dexie {
   boards!: Table<BoardSchema>;

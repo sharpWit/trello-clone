@@ -24,7 +24,13 @@ const Header = () => {
       <div className={`${styles.innerHeader} ${colorClass}`}>
         <div>{board?.id && <ListNav />}</div>
         <div className={styles.logo}>
-          <Image src="/images/logo.svg" alt="Logo" width={160} height={50} />
+          <Image
+            src="/images/logo.svg"
+            alt="Logo"
+            width={160}
+            height={50}
+            priority
+          />
         </div>
         <div></div>
       </div>
