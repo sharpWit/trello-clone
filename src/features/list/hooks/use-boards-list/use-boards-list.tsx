@@ -1,17 +1,26 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { boardRepository, db } from "@/db";
-import { BoardColors } from "@/shared";
+import { db, listsRepository } from "@/db";
 
-export function useBoardsList() {
-  const boardsLists = useLiveQuery(() => db.lists.toArray(), []) ?? [];
+export function useBoardsList(boardId: string) {
+  if (!boardId)
+    return {
+      boardsLists: [],
+      addList: async () => {},
+      deleteList: async () => {},
+    };
+  const boardLists =
+    useLiveQuery(
+      () => db.lists.where("boardId").equals(boardId).toArray(),
+      []
+    ) ?? [];
 
-  const addList = async (id: string, title: string, color: BoardColors) => {
-    await boardRepository.add({ id, title, color });
+  const addList = async (id: string, title: string) => {
+    await listsRepository.add({ id, boardId, title });
   };
 
   const deleteList = async (id: string) => {
-    await boardRepository.remove(id);
+    await listsRepository.remove(id);
   };
 
-  return { boardsLists, addList, deleteList };
+  return { boardLists, addList, deleteList };
 }

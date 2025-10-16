@@ -2,12 +2,12 @@ import { db } from "@/db/dexie/database";
 import { ListSchema } from "@/db/dexie/schemas";
 
 export const listsRepository = {
-  async getAll(): Promise<ListSchema[]> {
-    return await db.lists.toArray();
+  async getAll(id: string): Promise<ListSchema[] | undefined> {
+    return await db.lists.where("boardId").equals(id).toArray();
   },
 
   async getById(id: string): Promise<ListSchema | undefined> {
-    return await db.lists.get(id);
+    return await db.lists.where("id").equals(id).first();
   },
 
   async add(data: Omit<ListSchema, "createdAt">): Promise<ListSchema> {
@@ -15,11 +15,21 @@ export const listsRepository = {
       ...data,
       createdAt: new Date().toISOString(),
     };
-    await db.lists.add(newList);
+    await db.lists
+      .where("boardId")
+      .equals(newList.boardId)
+      .first()
+      .then((existingList) => {
+        if (existingList) {
+          return db.lists.update(existingList.id, newList);
+        } else {
+          return db.lists.add(newList);
+        }
+      });
     return newList;
   },
 
   async remove(id: string): Promise<void> {
-    await db.lists.delete(id);
+    await db.lists.where("id").equals(id).delete();
   },
 };

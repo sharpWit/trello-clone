@@ -6,9 +6,7 @@ import { Board } from "@/shared";
 type BoardCardProps = Board;
 
 const BoardCard = ({ id, title, color }: BoardCardProps) => {
-  const { boardsLists } = useBoardsList();
-
-  console.log("boardsLists: ", boardsLists);
+  const { boardLists } = useBoardsList(id);
 
   return (
     <Link
@@ -17,7 +15,7 @@ const BoardCard = ({ id, title, color }: BoardCardProps) => {
     >
       <h2>{title}</h2>
       <div className={styles.listCols}>
-        {boardsLists?.map((col) => {
+        {boardLists?.map((col) => {
           const cardsCount = col.cards?.length || 0;
           const cellsToShow =
             cardsCount === 0 ? 1 : cardsCount === 1 ? 2 : cardsCount;

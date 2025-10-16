@@ -1,14 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/navigation";
 import styles from "./form.module.scss";
 import { InputField } from "@/components/atoms";
 import { ColorGroup } from "@/components/molecules/color-group";
 import { ActionButtons } from "@/components/molecules/action-buttons";
 import { BoardColors, useClickOutside, useFormContext } from "@/shared";
-import { useBoardCard, useBoards } from "@/features";
 
 interface FormComponentProps {
   title: string;
@@ -16,6 +13,12 @@ interface FormComponentProps {
   hasDescription?: boolean;
   hasColor?: boolean;
   submitButtonText: string;
+  onSubmit: (data: {
+    title: string;
+    description?: string;
+    selectedColor?: BoardColors;
+  }) => Promise<void> | void;
+  onClose?: () => void;
 }
 const FormComponent = ({
   title,
@@ -23,60 +26,50 @@ const FormComponent = ({
   hasColor = false,
   titlePlaceholder,
   submitButtonText,
+  onSubmit,
+  onClose,
 }: FormComponentProps) => {
-  const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null!);
-  const { close } = useBoardCard();
-  const { addBoard } = useBoards();
   const { formData, updateField, resetForm } = useFormContext();
-  useClickOutside(formRef, () => close());
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateField("title", e.target.value);
-  };
-
-  // ! later
-  const handleDescriptionChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    updateField("description", e.target.value);
-  };
-
-  const handleColorChange = (color: BoardColors) => {
-    updateField("selectedColor", color);
-  };
+  useClickOutside(formRef, () => {
+    if (onClose) onClose();
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // ! make it reusable later
-    const newBoard = {
-      id: uuidv4(),
+    await onSubmit({
       title: formData.title,
-      // description: formData.description,
-      color: formData.selectedColor ?? "blue",
-      // createdAt: new Date().toISOString(),
-    };
-    await addBoard(newBoard.id, newBoard.title, newBoard.color);
-    router.push(`/boards/${newBoard.id}`);
-
+      description: formData.description,
+      selectedColor: formData.selectedColor,
+    });
     resetForm();
-    close();
+    onClose?.();
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.formElement} ref={formRef}>
       <InputField
-        placeholder={titlePlaceholder ?? "Add board title"}
+        placeholder={titlePlaceholder ?? "Enter title"}
         name={`${title}Title`}
         value={formData.title}
-        onChange={handleTitleChange}
+        onChange={(e) => updateField("title", e.target.value)}
         required
       />
+
+      {hasDescription && (
+        <textarea
+          placeholder="Add description"
+          value={formData.description ?? ""}
+          onChange={(e) => updateField("description", e.target.value)}
+          className={styles.textarea}
+        />
+      )}
+
       {hasColor && (
         <ColorGroup
           selectedColor={formData.selectedColor ?? "blue"}
-          onColorChange={handleColorChange}
+          onColorChange={(color) => updateField("selectedColor", color)}
         />
       )}
 
