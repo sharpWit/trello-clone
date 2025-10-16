@@ -2,9 +2,9 @@
 
 import { v4 as uuidv4 } from "uuid";
 import styles from "./card-generator.module.scss";
+import { useBoardsCard } from "@/features/card/hooks";
 import { FormComponent } from "@/components";
 import { FormProvider, useToggleCard } from "@/shared";
-import { useBoardsCard } from "@/features/card/hooks";
 
 const CardGenerator = ({ listId }: { listId?: string }) => {
   if (!listId) return null;

@@ -2,8 +2,8 @@
 
 import { v4 as uuidv4 } from "uuid";
 import styles from "./list-generator.module.scss";
-import { FormComponent } from "@/components/molecules";
 import { useBoardsList } from "@/features/list/hooks";
+import { FormComponent } from "@/components";
 import { FormProvider, useToggleCard } from "@/shared";
 
 export const ListGenerator = ({ boardId }: { boardId: string }) => {

@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { useLiveQuery } from "dexie-react-hooks";
+import { ToggleCardProvider } from "@/shared";
 import { boardRepository } from "@/db";
 
 const ListPage = dynamic(
@@ -24,7 +25,11 @@ const ListPageWrapper = ({ boardId }: { boardId: string }) => {
     notFound();
   }
 
-  return <ListPage id={board.id} title={board.title} color={board.color} />;
+  return (
+    <ToggleCardProvider>
+      <ListPage id={board.id} title={board.title} color={board.color} />
+    </ToggleCardProvider>
+  );
 };
 
 export default ListPageWrapper;
