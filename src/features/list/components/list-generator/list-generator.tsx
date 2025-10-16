@@ -12,7 +12,6 @@ export const ListGenerator = ({ boardId }: { boardId: string }) => {
 
   type FormData = {
     title: string;
-    description?: string;
   };
 
   const handleSubmit = async (data: FormData) => {

@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./card-generator.module.scss";
 import { FormComponent } from "@/components";
 import { FormProvider, useToggleCard } from "@/shared";
+import { useBoardsCard } from "@/features/card/hooks";
 
 const CardGenerator = ({ listId }: { listId?: string }) => {
-  // const { addCard } = useCard(listId);
+  if (!listId) return null;
+  const { addCard } = useBoardsCard(listId);
   const { close } = useToggleCard();
 
   type FormData = {
@@ -15,8 +17,8 @@ const CardGenerator = ({ listId }: { listId?: string }) => {
   };
 
   const handleSubmit = async (data: FormData) => {
-    // const id = uuidv4();
-    // await addCard(id, data.title);
+    const id = uuidv4();
+    await addCard(id, data.title, data.description);
   };
 
   return (
