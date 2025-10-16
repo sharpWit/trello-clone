@@ -1,10 +1,11 @@
 import { useBoardsList } from "@/features/list/hooks";
+import { useBoardsCard } from "@/features/card";
 import { Popover } from "@/components";
 import { DotsIcon } from "@/shared";
 
 interface ListBoxHeaderActionsProps {
   boardId: string;
-  listId?: string;
+  listId: string;
 }
 
 export const ListBoxHeaderActions = ({
@@ -12,13 +13,14 @@ export const ListBoxHeaderActions = ({
   listId,
 }: ListBoxHeaderActionsProps) => {
   const { deleteList } = useBoardsList(boardId);
+  const { deleteAllCards } = useBoardsCard(listId);
 
   const handleSelect = async (value: string) => {
     if (value === "deleteList" && listId) {
       await deleteList(listId);
     }
-    if (value === "deleteAllCards") {
-      console.log("All cards deleted from list", listId);
+    if (value === "deleteAllCards" && listId) {
+      await deleteAllCards();
     }
   };
 

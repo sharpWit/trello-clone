@@ -26,4 +26,7 @@ export const cardsRepository = {
   async remove(id: string): Promise<void> {
     await db.cards.where("id").equals(id).delete();
   },
+  async removeAll(listId: string): Promise<void> {
+    await db.cards.where("listId").equals(listId).delete();
+  },
 };

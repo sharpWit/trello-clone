@@ -8,6 +8,7 @@ export function useBoardsCard(listId: string) {
       addCard: async () => {},
       editCard: async () => {},
       deleteCard: async () => {},
+      deleteAllCards: async () => {},
     };
   const boardCards =
     useLiveQuery(() => db.cards.where("listId").equals(listId).toArray(), []) ??
@@ -25,5 +26,9 @@ export function useBoardsCard(listId: string) {
     await cardsRepository.remove(id);
   };
 
-  return { boardCards, addCard, editCard, deleteCard };
+  const deleteAllCards = async () => {
+    await cardsRepository.removeAll(listId);
+  };
+
+  return { boardCards, addCard, editCard, deleteCard, deleteAllCards };
 }
