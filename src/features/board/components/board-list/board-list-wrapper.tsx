@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useBoards } from "@/features/board/hooks/use-boards";
+import { useBoards } from "@/features/board/hooks";
 
 const BoardsList = dynamic(
   () => import("./board-list").then((mod) => mod.BoardList),

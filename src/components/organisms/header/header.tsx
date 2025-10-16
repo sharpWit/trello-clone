@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useLiveQuery } from "dexie-react-hooks";
 import styles from "./header.module.scss";
+import { ListNav } from "@/features";
 import { boardRepository } from "@/db";
-import ListNav from "@/features/list/components/list-nav/list-nav";
 
 const Header = () => {
   const params = useParams();

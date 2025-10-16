@@ -1,1 +1,1 @@
-export { BoardCardProvider, useBoardCard } from "./board-card-context";
+export * from "./board-card-context";

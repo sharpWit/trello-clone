@@ -6,10 +6,9 @@ import { useRouter } from "next/navigation";
 import styles from "./form.module.scss";
 import { InputField } from "@/components/atoms";
 import { ColorGroup } from "@/components/molecules/color-group";
-import ActionButtons from "@/components/molecules/action-buttons/action-buttons";
+import { ActionButtons } from "@/components/molecules/action-buttons";
 import { BoardColors, useClickOutside, useFormContext } from "@/shared";
-import { useBoards } from "@/features/board/hooks/use-boards";
-import { useBoardCard } from "@/features";
+import { useBoardCard, useBoards } from "@/features";
 
 interface FormComponentProps {
   title: string;

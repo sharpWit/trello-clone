@@ -1,10 +1,15 @@
 import Link from "next/link";
 import styles from "./board-card.module.scss";
 import { Board } from "@/shared";
+// import { useBoards } from "@/features/board/hooks/use-boards";
 
 type BoardCardProps = Board;
 
 const BoardCard = ({ id, title, color }: BoardCardProps) => {
+  // const { list } = useBoards();
+
+  // console.log("list: ", list);
+
   return (
     <Link
       href={`/boards/${id}`}

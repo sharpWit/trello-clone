@@ -1,7 +1,6 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { boardRepository } from "@/db/dexie/repositories/board.repo";
+import { boardRepository, db } from "@/db";
 import { BoardColors } from "@/shared";
-import { db } from "@/db";
 
 export function useBoards() {
   const boards = useLiveQuery(() => db.boards.toArray(), []) ?? [];
