@@ -2,6 +2,7 @@ import styles from "./list-box.module.scss";
 import ListButton from "@/features/list/components/list-generator/list-button";
 import ListBoxHeader from "@/features/list/components/list-box/list-box-header";
 import { CardSchema } from "@/db";
+import CardFormToggle from "@/features/card/components/card-generator/card-form-toggle";
 
 interface ListBoxProps {
   cards?: CardSchema[];
@@ -22,7 +23,8 @@ const ListBox = ({ cards, title, boardId, listId }: ListBoxProps) => {
           </div>
         ))}
       </div>
-      <ListButton className={styles.listBoxFooter} />
+      {/* <ListButton className={styles.listBoxFooter} /> */}
+      <CardFormToggle listId={listId} />
     </div>
   );
 };

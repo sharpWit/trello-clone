@@ -2,7 +2,6 @@
 
 import BoardCardToggle from "@/features/board/components/board-card-generator/board-card-toggle";
 import { BoardCard } from "@/features/board/components/board-card";
-import { BoardCardProvider } from "@/features/board/providers";
 import { Board } from "@/shared";
 
 interface BoardListProps {
@@ -21,9 +20,7 @@ export const BoardList = ({ boards }: BoardListProps) => {
           list={board.list}
         />
       ))}
-      <BoardCardProvider>
-        <BoardCardToggle />
-      </BoardCardProvider>
+      <BoardCardToggle />
     </>
   );
 };

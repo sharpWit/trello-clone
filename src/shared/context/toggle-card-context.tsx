@@ -2,16 +2,16 @@
 
 import { createContext, useContext, useState, useCallback } from "react";
 
-interface BoardCardContextValue {
+interface ToggleCardContextValue {
   isOpen: boolean;
   open: () => void;
   close: () => void;
   toggle: () => void;
 }
 
-const BoardCardContext = createContext<BoardCardContextValue | null>(null);
+const ToggleCardContext = createContext<ToggleCardContextValue | null>(null);
 
-export const BoardCardProvider = ({
+export const ToggleCardProvider = ({
   children,
 }: {
   children: React.ReactNode;
@@ -22,15 +22,15 @@ export const BoardCardProvider = ({
   const toggle = useCallback(() => setIsOpen((v) => !v), []);
 
   return (
-    <BoardCardContext.Provider value={{ isOpen, open, close, toggle }}>
+    <ToggleCardContext.Provider value={{ isOpen, open, close, toggle }}>
       {children}
-    </BoardCardContext.Provider>
+    </ToggleCardContext.Provider>
   );
 };
 
-export const useBoardCard = () => {
-  const ctx = useContext(BoardCardContext);
+export const useToggleCard = () => {
+  const ctx = useContext(ToggleCardContext);
   if (!ctx)
-    throw new Error("useBoardCard must be used within BoardCardProvider");
+    throw new Error("useToggleCard must be used within ToggleCardProvider");
   return ctx;
 };

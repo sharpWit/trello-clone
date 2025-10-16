@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import { Layout } from "@/components";
+import { ToggleCardProvider } from "@/shared";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Layout>{children}</Layout>
+        <ToggleCardProvider>
+          <Layout>{children}</Layout>
+        </ToggleCardProvider>
       </body>
     </html>
   );

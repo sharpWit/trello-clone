@@ -1,13 +1,12 @@
 "use client";
 
 import { v4 as uuidv4 } from "uuid";
-import styles from "./list-generator.module.scss";
-import { FormComponent } from "@/components/molecules";
-import { useBoardsList } from "@/features/list/hooks";
+import styles from "./card-generator.module.scss";
+import { FormComponent } from "@/components";
 import { FormProvider, useToggleCard } from "@/shared";
 
-export const ListGenerator = ({ boardId }: { boardId: string }) => {
-  const { addList } = useBoardsList(boardId);
+const CardGenerator = ({ listId }: { listId?: string }) => {
+  // const { addCard } = useCard(listId);
   const { close } = useToggleCard();
 
   type FormData = {
@@ -16,17 +15,17 @@ export const ListGenerator = ({ boardId }: { boardId: string }) => {
   };
 
   const handleSubmit = async (data: FormData) => {
-    const id = uuidv4();
-    await addList(id, data.title);
+    // const id = uuidv4();
+    // await addCard(id, data.title);
   };
 
   return (
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
-          title="list"
-          titlePlaceholder="Enter a list title..."
-          submitButtonText="Add list"
+          title="card"
+          titlePlaceholder="Enter a card title..."
+          submitButtonText="Create card"
           onSubmit={handleSubmit}
           onClose={close}
         />
@@ -35,4 +34,4 @@ export const ListGenerator = ({ boardId }: { boardId: string }) => {
   );
 };
 
-export default ListGenerator;
+export default CardGenerator;

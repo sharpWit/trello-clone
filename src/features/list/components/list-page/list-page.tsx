@@ -4,7 +4,6 @@ import styles from "./list-page.module.scss";
 import ListToggle from "@/features/list/components/list-generator/list-toggle";
 import { ListBox } from "@/features/list/components/list-box";
 import { useBoardsList } from "@/features/list/hooks";
-import { BoardCardProvider } from "@/features/board";
 import { Board } from "@/shared";
 
 type ListPageProps = Board;
@@ -29,9 +28,8 @@ export const ListPage = ({ id, title, color }: ListPageProps) => {
               />
             ))
           : null}
-        <BoardCardProvider>
-          <ListToggle boardId={id} />
-        </BoardCardProvider>
+
+        <ListToggle boardId={id} />
       </div>
     </div>
   );

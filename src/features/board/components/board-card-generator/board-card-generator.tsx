@@ -3,15 +3,14 @@
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import styles from "./board-card-generator.module.scss";
+import { BoardColors, FormProvider, useToggleCard } from "@/shared";
 import { FormComponent } from "@/components/molecules";
-import { useBoardCard } from "@/features/board/providers";
 import { useBoards } from "@/features/board/hooks";
-import { BoardColors, FormProvider } from "@/shared";
 
 export const BoardCardGenerator = () => {
   const router = useRouter();
   const { addBoard } = useBoards();
-  const { close } = useBoardCard();
+  const { close } = useToggleCard();
 
   type FormData = {
     title: string;

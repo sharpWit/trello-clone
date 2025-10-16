@@ -2,12 +2,12 @@
 
 import React from "react";
 import styles from "./list-generator.module.scss";
-import { useBoardCard } from "@/features/board/providers";
 import ListButton from "@/features/list/components/list-generator/list-button";
 import ListGenerator from "@/features/list/components/list-generator/list-generator";
+import { useToggleCard } from "@/shared";
 
 const ListToggle = ({ boardId }: { boardId: string }) => {
-  const { isOpen, open } = useBoardCard();
+  const { isOpen, open } = useToggleCard();
 
   return isOpen ? (
     <ListGenerator boardId={boardId} />

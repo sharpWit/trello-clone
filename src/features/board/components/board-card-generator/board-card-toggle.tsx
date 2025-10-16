@@ -4,10 +4,10 @@ import React from "react";
 
 import BoardCardButton from "./board-card-button";
 import BoardCardGenerator from "./board-card-generator";
-import { useBoardCard } from "@/features/board/providers";
+import { useToggleCard } from "@/shared";
 
 const BoardCardToggle = () => {
-  const { isOpen, open } = useBoardCard();
+  const { isOpen, open } = useToggleCard();
 
   return isOpen ? <BoardCardGenerator /> : <BoardCardButton onClick={open} />;
 };
