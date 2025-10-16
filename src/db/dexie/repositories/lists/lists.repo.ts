@@ -29,6 +29,10 @@ export const listsRepository = {
     return newList;
   },
 
+  async update(id: string, data: Partial<ListSchema>): Promise<void> {
+    await db.lists.where("id").equals(id).modify(data);
+  },
+
   async remove(id: string): Promise<void> {
     await db.lists.where("id").equals(id).delete();
   },

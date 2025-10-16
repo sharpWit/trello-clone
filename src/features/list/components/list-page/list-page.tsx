@@ -18,7 +18,19 @@ export const ListPage = ({ id, title, color }: ListPageProps) => {
         <h1>{title}</h1>
       </div>
       <div className={styles.listPageBody}>
-        <ListBox lists={boardLists} />
+        {boardLists?.length ? (
+          boardLists.map((list) => (
+            <ListBox
+              key={list.id}
+              cards={list.cards}
+              title={list.title}
+              boardId={id}
+              listId={list.id}
+            />
+          ))
+        ) : (
+          <p>No lists available</p>
+        )}
         <BoardCardProvider>
           <ListToggle boardId={id} />
         </BoardCardProvider>

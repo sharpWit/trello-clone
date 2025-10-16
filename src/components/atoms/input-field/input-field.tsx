@@ -6,6 +6,7 @@ interface InputFieldProps {
   value?: string;
   defaultValue?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   disabled?: boolean;
@@ -22,6 +23,7 @@ const InputField = ({
   value,
   defaultValue,
   onChange,
+  onKeyDown,
   onFocus,
   onBlur,
   disabled = false,
@@ -38,6 +40,7 @@ const InputField = ({
       value={value}
       defaultValue={defaultValue}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       onFocus={onFocus}
       onBlur={onBlur}
       disabled={disabled}

@@ -1,21 +1,24 @@
 import styles from "./list-box.module.scss";
 import ListButton from "@/features/list/components/list-generator/list-button";
 import ListBoxHeader from "@/features/list/components/list-box/list-box-header";
-import { ListSchema } from "@/db";
+import { CardSchema } from "@/db";
 
 interface ListBoxProps {
-  lists?: ListSchema[];
+  cards?: CardSchema[];
+  title: string;
+  boardId: string;
+  listId?: string;
 }
-const ListBox = ({ lists }: ListBoxProps) => {
+const ListBox = ({ cards, title, boardId, listId }: ListBoxProps) => {
   return (
     <div className={styles.listBox}>
       <div className={styles.listBoxHeader}>
-        <ListBoxHeader />
+        <ListBoxHeader title={title} boardId={boardId} listId={listId} />
       </div>
       <div className={styles.listBoxBody}>
-        {lists?.map((list) => (
-          <div key={list.id} className={styles.listBoxBodyItem}>
-            <div className={styles.listBoxBodyItemBox}>{list.title}</div>
+        {cards?.map((card) => (
+          <div key={card.id} className={styles.listBoxBodyItem}>
+            <div className={styles.listBoxBodyItemBox}>{card.title}</div>
           </div>
         ))}
       </div>

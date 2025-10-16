@@ -6,6 +6,7 @@ export function useBoardsList(boardId: string) {
     return {
       boardsLists: [],
       addList: async () => {},
+      editList: async () => {},
       deleteList: async () => {},
     };
   const boardLists =
@@ -18,9 +19,13 @@ export function useBoardsList(boardId: string) {
     await listsRepository.add({ id, boardId, title });
   };
 
+  const editList = async (id: string, title: string) => {
+    await listsRepository.update(id, { title });
+  };
+
   const deleteList = async (id: string) => {
     await listsRepository.remove(id);
   };
 
-  return { boardLists, addList, deleteList };
+  return { boardLists, addList, editList, deleteList };
 }
