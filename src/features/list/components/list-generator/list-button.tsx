@@ -5,20 +5,19 @@ import styles from "./list-generator.module.scss";
 
 interface ListButtonProps {
   onClick?: () => void;
+  className?: string;
 }
 
-const ListButton = ({ onClick }: ListButtonProps) => {
+const ListButton = ({ onClick, className }: ListButtonProps) => {
   return (
-    <div className={styles.container}>
-      <button
-        type="button"
-        onClick={onClick}
-        aria-label="Create list"
-        className={styles.innerBtn}
-      >
-        + Add another list
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Create list"
+      className={`${styles.innerBtn} ${className}`}
+    >
+      + Add another list
+    </button>
   );
 };
 
