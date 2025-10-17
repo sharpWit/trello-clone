@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./card-modal.module.scss";
 import ModalCardGenerator from "@/features/card/components/modal-card-generator/modal-card-generator";
 import { ModalCardActions } from "@/features/card/components/card-modal/modal-card-actions";
+import ModalCardTitle from "@/features/card/components/card-modal/modal-card-title";
 import { CloseIcon, DescIcon, ModalIcon } from "@/shared";
 import { Modal } from "@/components";
 
@@ -35,7 +36,14 @@ const CardModal = ({
         <div className={styles.header}>
           <div className={styles.innerHeader}>
             <ModalIcon className={styles.innerHeaderIcon} />
-            <h2 className={styles.innerHeaderTitle}>{initialTitle}</h2>
+            <ModalCardTitle
+              title={initialTitle}
+              boardId={boardId}
+              listId={listId}
+              cardId={cardId}
+              initialDescription={initialDescription}
+            />
+
             <button
               className={styles.closeButton}
               onClick={onClose}

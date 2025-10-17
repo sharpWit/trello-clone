@@ -46,6 +46,10 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        & input {
+          max-width: 100%;
+        }
       }
       .closeButton {
         position: absolute;
