@@ -18,9 +18,8 @@ interface FormComponentProps {
     description?: string;
     selectedColor?: BoardColors;
   }) => Promise<void> | void;
-  onClose?: () => void;
+  onClose: () => void;
   className?: string;
-  modalId: string;
 }
 const FormComponent = ({
   title,
@@ -31,7 +30,6 @@ const FormComponent = ({
   onSubmit,
   onClose,
   className,
-  modalId,
 }: FormComponentProps) => {
   const formRef = useRef<HTMLFormElement>(null!);
   const { formData, updateField, resetForm } = useFormContext();
@@ -57,17 +55,19 @@ const FormComponent = ({
       className={`${styles.formElement} ${className}`}
       ref={formRef}
     >
-      <InputField
-        placeholder={titlePlaceholder ?? "Enter title"}
-        name={`${title}Title`}
-        value={formData.title}
-        onChange={(e) => updateField("title", e.target.value)}
-        required
-      />
+      {!hasDescription && (
+        <InputField
+          placeholder={titlePlaceholder ?? "Enter title"}
+          name={`${title}Title`}
+          value={formData.title}
+          onChange={(e) => updateField("title", e.target.value)}
+          required
+        />
+      )}
 
       {hasDescription && (
         <textarea
-          placeholder="Add description"
+          placeholder={titlePlaceholder ?? "Add description"}
           value={formData.description ?? ""}
           onChange={(e) => updateField("description", e.target.value)}
           className={styles.textarea}
@@ -81,7 +81,7 @@ const FormComponent = ({
         />
       )}
 
-      <ActionButtons modalId={modalId}>{submitButtonText}</ActionButtons>
+      <ActionButtons onClose={onClose}>{submitButtonText}</ActionButtons>
     </form>
   );
 };

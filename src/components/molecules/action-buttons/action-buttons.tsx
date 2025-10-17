@@ -4,16 +4,15 @@ import { Button } from "@/components/atoms";
 
 interface ActionButtonsProps {
   children: React.ReactNode;
-  modalId: string;
+  onClose: () => void;
 }
 
-const ActionButtons = ({ children, modalId }: ActionButtonsProps) => {
+const ActionButtons = ({ children, onClose }: ActionButtonsProps) => {
   const { formData, resetForm } = useFormContext();
-  const { close } = useModal(modalId);
 
   const handleReset = () => {
     resetForm();
-    close();
+    onClose();
   };
 
   const isFormValid =

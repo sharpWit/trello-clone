@@ -2,15 +2,17 @@
 
 import styles from "./card.module.scss";
 import { CardModal } from "@/features/card/components/card-modal";
-import { useModal } from "@/shared";
+import { DescIcon, useModal } from "@/shared";
 
 interface CardProps {
   id: string;
   title: string;
   description?: string;
+  listId?: string;
+  boardId: string;
 }
 
-const Card = ({ id, title, description }: CardProps) => {
+const Card = ({ id, title, description, listId, boardId }: CardProps) => {
   const modalId = `card-${id}`;
   const { isOpen, open, close } = useModal(modalId);
 
@@ -29,7 +31,8 @@ const Card = ({ id, title, description }: CardProps) => {
         aria-expanded={isOpen}
         tabIndex={0}
       >
-        {title}
+        <h4> {title}</h4>
+        <div>{description && <DescIcon />}</div>
         {isOpen && (
           <div
             style={{
@@ -57,6 +60,9 @@ const Card = ({ id, title, description }: CardProps) => {
         onClose={close}
         cardId={id}
         initialTitle={title}
+        listId={listId}
+        boardId={boardId}
+        initialDescription={description}
       />
     </>
   );

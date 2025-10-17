@@ -1,14 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./card-modal.module.scss";
+import ModalCardGenerator from "@/features/card/components/modal-card-generator/modal-card-generator";
 import { CloseIcon, DeleteIcon, DescIcon, ModalIcon } from "@/shared";
 import { Modal } from "@/components";
 
 interface CardModalProps {
   isOpen: boolean;
   onClose: () => void;
-  cardId?: string;
+  cardId: string;
   initialTitle?: string;
+  listId?: string;
+  boardId: string;
+  initialDescription?: string;
 }
 
 const CardModal = ({
@@ -16,7 +21,12 @@ const CardModal = ({
   onClose,
   cardId,
   initialTitle = "",
+  listId,
+  boardId,
+  initialDescription,
 }: CardModalProps) => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={initialTitle} size="medium">
       <div className={styles.cardModal}>
@@ -44,7 +54,29 @@ const CardModal = ({
                 <h3 className={styles.innerBodyLeftTopTopTitle}>Description</h3>
               </div>
               <div className={styles.innerBodyLeftContent}>
-                <div className={styles.description}>desc content</div>
+                {isFormOpen ? (
+                  <ModalCardGenerator
+                    listId={listId}
+                    boardId={boardId}
+                    onClose={() => setIsFormOpen(false)}
+                    cardId={cardId}
+                    title={initialTitle}
+                  />
+                ) : initialDescription ? (
+                  <div
+                    className={styles.description}
+                    onClick={() => setIsFormOpen(true)}
+                  >
+                    {initialDescription}
+                  </div>
+                ) : (
+                  <div
+                    className={styles.description}
+                    onClick={() => setIsFormOpen(true)}
+                  >
+                    Add a more detailed description...
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -1,0 +1,25 @@
+.innerBtn {
+  width: $w-full;
+  text-align: left;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: $spacing-sm 0.75rem;
+  font-size: 0.875rem;
+  color: $accent-color;
+  transition: 0.2s ease-in;
+
+  &:hover {
+    color: $card-foreground-color;
+    background-color: tint($card-foreground-color, 70%);
+  }
+}
+
+.createCardContainer {
+  padding: $spacing-sm;
+
+  .createCardForm {
+    padding: 0;
+  }
+}

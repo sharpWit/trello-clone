@@ -5,4 +5,19 @@
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px;
   transition: background-color 0.2s ease-in;
   margin-bottom: $spacing-sm;
+
+  & h4 {
+    font-size: 0.875rem;
+    color: rgb(64, 66, 75);
+    word-break: break-word;
+  }
+
+  & svg {
+    display: inline-block;
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+  }
 }

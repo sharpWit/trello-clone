@@ -17,7 +17,14 @@ const CardList = ({ listId, boardId }: CardListProps) => {
       <div className={styles.listBoxBody}>
         <div className={styles.listBoxBodyItem}>
           {boardCards?.map((card) => (
-            <Card key={card.id} id={card.id} title={card.title} />
+            <Card
+              key={card.id}
+              id={card.id}
+              title={card.title}
+              boardId={boardId}
+              listId={listId}
+              description={card.description}
+            />
           ))}
         </div>
       </div>
