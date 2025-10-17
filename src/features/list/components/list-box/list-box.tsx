@@ -13,7 +13,7 @@ const ListBox = ({ title, boardId, listId }: ListBoxProps) => {
       <div className={styles.listBoxHeader}>
         <ListBoxHeader title={title} boardId={boardId} listId={listId} />
       </div>
-      <CardList listId={listId} />
+      <CardList boardId={boardId} listId={listId} />
     </div>
   );
 };

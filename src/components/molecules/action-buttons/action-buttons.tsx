@@ -1,14 +1,15 @@
 import styles from "./action-buttons.module.scss";
-import { CloseIcon, useFormContext, useToggleCard } from "@/shared";
+import { CloseIcon, useFormContext, useModal } from "@/shared";
 import { Button } from "@/components/atoms";
 
 interface ActionButtonsProps {
   children: React.ReactNode;
+  modalId: string;
 }
 
-const ActionButtons = ({ children }: ActionButtonsProps) => {
+const ActionButtons = ({ children, modalId }: ActionButtonsProps) => {
   const { formData, resetForm } = useFormContext();
-  const { close } = useToggleCard();
+  const { close } = useModal(modalId);
 
   const handleReset = () => {
     resetForm();

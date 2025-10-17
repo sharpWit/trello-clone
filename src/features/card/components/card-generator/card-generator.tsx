@@ -4,12 +4,19 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./card-generator.module.scss";
 import { useBoardsCard } from "@/features/card/hooks";
 import { FormComponent } from "@/components";
-import { FormProvider, useToggleCard } from "@/shared";
+import { FormProvider, useModal } from "@/shared";
 
-const CardGenerator = ({ listId }: { listId?: string }) => {
+const CardGenerator = ({
+  listId,
+  boardId,
+}: {
+  listId?: string;
+  boardId: string;
+}) => {
   if (!listId) return null;
-  const { addCard } = useBoardsCard(listId);
-  const { close } = useToggleCard();
+  const { addCard } = useBoardsCard(boardId, listId);
+
+  const { close } = useModal(`form-modal-${listId}`);
 
   type FormData = {
     title: string;
@@ -25,6 +32,7 @@ const CardGenerator = ({ listId }: { listId?: string }) => {
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
+          modalId={`form-modal-${listId}`}
           title="card"
           titlePlaceholder="Enter a card title..."
           submitButtonText="Create card"

@@ -20,6 +20,7 @@ interface FormComponentProps {
   }) => Promise<void> | void;
   onClose?: () => void;
   className?: string;
+  modalId: string;
 }
 const FormComponent = ({
   title,
@@ -30,6 +31,7 @@ const FormComponent = ({
   onSubmit,
   onClose,
   className,
+  modalId,
 }: FormComponentProps) => {
   const formRef = useRef<HTMLFormElement>(null!);
   const { formData, updateField, resetForm } = useFormContext();
@@ -79,7 +81,7 @@ const FormComponent = ({
         />
       )}
 
-      <ActionButtons>{submitButtonText}</ActionButtons>
+      <ActionButtons modalId={modalId}>{submitButtonText}</ActionButtons>
     </form>
   );
 };

@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./list-generator.module.scss";
 import { useBoardsList } from "@/features/list/hooks";
 import { FormComponent } from "@/components";
-import { FormProvider, useToggleCard } from "@/shared";
+import { FormProvider, useModal } from "@/shared";
 
 export const ListGenerator = ({ boardId }: { boardId: string }) => {
   const { addList } = useBoardsList(boardId);
-  const { close } = useToggleCard();
+  const { close } = useModal(`form-modal-${boardId}`);
 
   type FormData = {
     title: string;
@@ -23,6 +23,7 @@ export const ListGenerator = ({ boardId }: { boardId: string }) => {
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
+          modalId={`form-modal-${boardId}`}
           title="list"
           titlePlaceholder="Enter a list title..."
           submitButtonText="Add list"

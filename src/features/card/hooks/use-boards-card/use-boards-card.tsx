@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { cardsRepository, db } from "@/db";
 
-export function useBoardsCard(listId: string) {
+export function useBoardsCard(boardId: string, listId: string) {
   if (!listId)
     return {
       boardsCards: [],
@@ -15,7 +15,7 @@ export function useBoardsCard(listId: string) {
     [];
 
   const addCard = async (id: string, title: string, description?: string) => {
-    await cardsRepository.add({ id, listId, title, description });
+    await cardsRepository.add({ id, boardId, listId, title, description });
   };
 
   const editCard = async (id: string, title: string, description?: string) => {

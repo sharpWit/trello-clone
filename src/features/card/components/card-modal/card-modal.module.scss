@@ -1,0 +1,200 @@
+.cardModal {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  max-width: 45rem;
+  width: 100%;
+  max-height: calc(100% - 8rem);
+  padding: 1rem;
+  border-radius: 0.2rem;
+  background-color: rgb(244, 245, 247);
+  transform: translateX(-50%);
+  overflow: hidden;
+
+  .header {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    .innerHeader {
+      position: relative;
+      margin-bottom: 0.3rem;
+      padding-left: calc(1.5rem);
+
+      .innerHeaderIcon {
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        font-size: 1rem;
+        transform: translateY(-50%);
+      }
+      & svg {
+        display: inline-block;
+        font-size: inherit;
+        width: 1em;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+
+      .innerHeaderTitle {
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 1.75rem 0.3rem 0.5rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .closeButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: rgb(107, 119, 140);
+        font-size: 1.3rem;
+        transition: color 0.1s ease-in;
+        z-index: 110;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(66, 82, 110);
+        }
+
+        svg {
+          display: inline-block;
+          font-size: inherit;
+          width: 1em;
+          height: 1em;
+          overflow: visible;
+          vertical-align: -0.125em;
+        }
+      }
+    }
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+
+    .innerBodyLeft {
+      position: relative;
+
+      .innerBodyLeftTop {
+        position: relative;
+        margin-bottom: 0.3rem;
+        padding-left: calc(1.5rem);
+
+        .innerBodyLeftTopIcon {
+          position: absolute;
+          left: 0px;
+          top: 50%;
+          font-size: 1rem;
+          transform: translateY(-50%);
+        }
+        & svg {
+          display: inline-block;
+          font-size: inherit;
+          width: 1em;
+          height: 1em;
+          overflow: visible;
+          vertical-align: -0.125em;
+        }
+
+        .innerBodyLeftTopTopTitle {
+          padding: 0.3rem 0.5rem;
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+      }
+      .innerBodyLeftContent {
+        padding-left: 2rem;
+
+        .description {
+          display: flex;
+          padding: 0.5rem 0.75rem;
+          width: 100%;
+          min-height: 4rem;
+          font-size: 0.875rem;
+          text-align: left;
+          background-color: rgba(9, 30, 66, 0.08);
+          border-radius: 3px;
+          transition: background-color 0.2s ease-in;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(9, 30, 66, 0.13);
+          }
+        }
+      }
+    }
+
+    .innerBodyRight {
+      position: relative;
+      padding: 0.5rem 0px;
+
+      .rightTitle {
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        color: rgb(107, 119, 140);
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .rightContent {
+        display: flex;
+        flex-direction: column;
+
+        .rightContentWrapper {
+          position: relative;
+
+          .rightContentBody {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.2rem;
+            text-align: left;
+            background-color: rgb(235, 236, 240);
+            box-shadow: rgba(9, 30, 66, 0.13) 0px 1px 0px 0px;
+            transition: 0.2s ease-in;
+            cursor: pointer;
+
+            .rightContentBodyIcon {
+              margin-right: 0.5rem;
+            }
+
+            & svg {
+              display: inline-block;
+              font-size: inherit;
+              width: 1em;
+              height: 1em;
+              overflow: visible;
+              vertical-align: -0.125em;
+            }
+
+            &:hover {
+              background-color: rgb(223, 225, 230);
+              box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cardModal {
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    transform: translateX(0px);
+  }
+}
