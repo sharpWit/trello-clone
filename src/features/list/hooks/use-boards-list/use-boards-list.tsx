@@ -2,17 +2,8 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { db, listsRepository } from "@/db";
 
 export function useBoardsList(boardId: string) {
-  if (!boardId)
-    return {
-      boardsLists: [],
-      addList: async () => {},
-      editList: async () => {},
-      deleteList: async () => {},
-    };
-
   const boardLists =
     useLiveQuery(async () => {
-      if (!boardId) return [];
       const lists = await db.lists.where("boardId").equals(boardId).toArray();
 
       // Attach cards to each list

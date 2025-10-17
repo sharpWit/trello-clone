@@ -2,14 +2,6 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { cardsRepository, db } from "@/db";
 
 export function useBoardsCard(boardId: string, listId: string) {
-  if (!listId)
-    return {
-      boardsCards: [],
-      addCard: async () => {},
-      editCard: async () => {},
-      deleteCard: async () => {},
-      deleteAllCards: async () => {},
-    };
   const boardCards =
     useLiveQuery(() => db.cards.where("listId").equals(listId).toArray(), []) ??
     [];

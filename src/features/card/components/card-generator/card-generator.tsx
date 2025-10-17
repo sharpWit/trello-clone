@@ -10,10 +10,9 @@ const CardGenerator = ({
   listId,
   boardId,
 }: {
-  listId?: string;
+  listId: string;
   boardId: string;
 }) => {
-  if (!listId) return null;
   const { addCard } = useBoardsCard(boardId, listId);
 
   const { close } = useModal(`form-modal-${listId}`);
@@ -32,7 +31,6 @@ const CardGenerator = ({
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
-          modalId={`form-modal-${listId}`}
           title="card"
           titlePlaceholder="Enter a card title..."
           submitButtonText="Create card"

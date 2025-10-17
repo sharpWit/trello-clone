@@ -23,7 +23,6 @@ export const ListGenerator = ({ boardId }: { boardId: string }) => {
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
-          modalId={`form-modal-${boardId}`}
           title="list"
           titlePlaceholder="Enter a list title..."
           submitButtonText="Add list"

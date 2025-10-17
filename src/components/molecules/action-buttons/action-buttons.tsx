@@ -1,5 +1,5 @@
 import styles from "./action-buttons.module.scss";
-import { CloseIcon, useFormContext, useModal } from "@/shared";
+import { CloseIcon, useFormContext } from "@/shared";
 import { Button } from "@/components/atoms";
 
 interface ActionButtonsProps {

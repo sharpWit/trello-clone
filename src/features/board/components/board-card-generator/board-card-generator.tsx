@@ -28,7 +28,6 @@ export const BoardCardGenerator = () => {
     <div className={styles.createCardContainer}>
       <FormProvider>
         <FormComponent
-          modalId="unique-modal-board"
           title="Board"
           titlePlaceholder="Add board title"
           hasColor

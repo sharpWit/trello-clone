@@ -1,9 +1,4 @@
-import {
-  BoardColorsSchema,
-  BoardSchema,
-  CardSchema,
-  ListSchema,
-} from "@/db/dexie/schema";
+import { BoardColorsSchema, BoardSchema, CardSchema, ListSchema } from "@/db";
 
 export type BoardColors = BoardColorsSchema;
 

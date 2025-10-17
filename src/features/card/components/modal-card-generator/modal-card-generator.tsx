@@ -12,13 +12,12 @@ const ModalCardGenerator = ({
   onClose,
   title,
 }: {
-  listId?: string;
+  listId: string;
   boardId: string;
   cardId: string;
   onClose: () => void;
   title: string;
 }) => {
-  if (!listId) return null;
   const { editCard } = useBoardsCard(boardId, listId);
 
   type FormData = {

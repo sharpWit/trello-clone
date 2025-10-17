@@ -8,7 +8,7 @@ const CardFormToggle = ({
   listId,
   boardId,
 }: {
-  listId?: string;
+  listId: string;
   boardId: string;
 }) => {
   const { isOpen, open } = useModal(`form-modal-${listId}`);

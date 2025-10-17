@@ -8,7 +8,7 @@ interface CardProps {
   id: string;
   title: string;
   description?: string;
-  listId?: string;
+  listId: string;
   boardId: string;
 }
 
