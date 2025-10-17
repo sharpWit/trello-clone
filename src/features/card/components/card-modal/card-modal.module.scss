@@ -9,7 +9,6 @@
   border-radius: 0.2rem;
   background-color: rgb(244, 245, 247);
   transform: translateX(-50%);
-  overflow: hidden;
 
   .header {
     position: relative;
@@ -150,42 +149,96 @@
 
         .rightContentWrapper {
           position: relative;
-
-          .rightContentBody {
-            display: flex;
-            -webkit-box-align: center;
-            align-items: center;
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            border-radius: 0.2rem;
-            text-align: left;
-            background-color: rgb(235, 236, 240);
-            box-shadow: rgba(9, 30, 66, 0.13) 0px 1px 0px 0px;
-            transition: 0.2s ease-in;
-            cursor: pointer;
-
-            .rightContentBodyIcon {
-              margin-right: 0.5rem;
-            }
-
-            & svg {
-              display: inline-block;
-              font-size: inherit;
-              width: 1em;
-              height: 1em;
-              overflow: visible;
-              vertical-align: -0.125em;
-            }
-
-            &:hover {
-              background-color: rgb(223, 225, 230);
-              box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px 0px;
-            }
-          }
         }
       }
+    }
+  }
+}
+
+.modalPopoverContainer {
+  position: relative;
+  display: inline-block;
+
+  .modalPopoverTrigger {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 100%;
+    width: 160px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    text-align: left;
+    background-color: rgb(235, 236, 240);
+    box-shadow: rgba(9, 30, 66, 0.13) 0px 1px 0px 0px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+    border: none;
+
+    .rightContentBodyIcon {
+      margin-right: 0.5rem;
+    }
+
+    & svg {
+      display: inline-block;
+      font-size: inherit;
+      width: 1em;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+
+    &:hover {
+      background-color: rgb(223, 225, 230);
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 0px 0px;
+    }
+  }
+}
+.modalPopoverWrapper {
+  position: absolute;
+  top: 2rem;
+  left: calc(100% - 2rem);
+  width: 17rem;
+  background-color: rgb(244, 245, 247);
+  border-radius: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0.125rem 0.125rem 0.5rem;
+  z-index: 10;
+
+  .modalPopoverHeader {
+    position: relative;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+
+    .modalPopoverHeaderTitle {
+      font-size: 1rem;
+      color: rgb(107, 119, 140);
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+
+  .modalPopoverBody {
+    padding: 0.5rem;
+
+    .modalPopoverBodyContent {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: rgb(64, 66, 75);
+    }
+
+    .modalPopoverDeleteButton {
+      margin-right: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      font-size: 0.875rem;
+      border: 0px;
+      background-color: rgb(207, 81, 61);
+      box-shadow: rgb(110, 47, 26) 0px 1px 0px 0px;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in;
     }
   }
 }
@@ -196,5 +249,14 @@
     right: 1rem;
     width: auto;
     transform: translateX(0px);
+    @include flex;
+    flex-direction: column;
+
+    .body {
+      grid-template-columns: 1fr;
+    }
+  }
+  .modalPopoverWrapper {
+    left: 0;
   }
 }

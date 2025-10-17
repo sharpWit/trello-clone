@@ -13,7 +13,7 @@ export const ListBoxHeaderActions = ({
   listId,
 }: ListBoxHeaderActionsProps) => {
   const { deleteList } = useBoardsList(boardId);
-  const { deleteAllCards } = useBoardsCard(listId);
+  const { deleteAllCards } = useBoardsCard(boardId, listId);
 
   const handleSelect = async (value: string) => {
     if (value === "deleteList" && listId) {

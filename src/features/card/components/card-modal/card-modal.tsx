@@ -3,7 +3,8 @@
 import { useState } from "react";
 import styles from "./card-modal.module.scss";
 import ModalCardGenerator from "@/features/card/components/modal-card-generator/modal-card-generator";
-import { CloseIcon, DeleteIcon, DescIcon, ModalIcon } from "@/shared";
+import { ModalCardActions } from "@/features/card/components/card-modal/modal-card-actions";
+import { CloseIcon, DescIcon, ModalIcon } from "@/shared";
 import { Modal } from "@/components";
 
 interface CardModalProps {
@@ -11,7 +12,7 @@ interface CardModalProps {
   onClose: () => void;
   cardId: string;
   initialTitle?: string;
-  listId?: string;
+  listId: string;
   boardId: string;
   initialDescription?: string;
 }
@@ -84,10 +85,11 @@ const CardModal = ({
             <h4 className={styles.rightTitle}>ACTIONS</h4>
             <div className={styles.rightContent}>
               <div className={styles.rightContentWrapper}>
-                <div className={styles.rightContentBody}>
-                  <DeleteIcon className={styles.rightContentBodyIcon} />
-                  <p>Delete</p>
-                </div>
+                <ModalCardActions
+                  boardId={boardId}
+                  listId={listId}
+                  cardId={cardId}
+                />
               </div>
             </div>
           </div>
